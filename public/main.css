@@ -11,6 +11,18 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
+.hide {
+  display: none !important;
+}
+
+.disable {
+  background: rgba(14, 77, 139, 0.603) !important;
+  color: #ccc !important;
+}
+.disable:hover {
+  transform: translate(0, 0) !important;
+}
+
 .container {
   width: 100%;
   height: 100vh;
@@ -85,6 +97,45 @@ html {
 }
 .container .chat-box .chat-box-main .messages .message.received-message {
   background: rgb(10, 75, 139);
+}
+.container .chat-box .login {
+  width: 100%;
+  height: 458px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .chat-box .login form {
+  display: grid;
+  width: 100%;
+}
+.container .chat-box .login form label {
+  text-align: center;
+  font-size: 20px;
+}
+.container .chat-box .login form input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 2px solid #ccc;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 10px;
+  justify-self: center;
+  margin: 20px 0px;
+}
+.container .chat-box .login form button {
+  padding: 10px;
+  background: dodgerblue;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.container .chat-box .login form button:hover {
+  transform: translateY(-5px);
 }
 
 /*# sourceMappingURL=main.css.map */

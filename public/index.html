@@ -14,34 +14,20 @@
             <div class="chat-box-title">
                 <h1>Chat App</h1>
             </div>
-            <div class="chat-box-main">
+            <div class="login">
+                <form action="#" class="user-login">
+                    <label for="username">Choisissez un nom d'utilisateur</label>
+                    <input type="text" id="username" placeholder="Votre nom d'utilisateur" />
+                    <button class="disable" type="button">Se connecter</button>
+                </form>
+            </div>
+            <div class="chat-box-main hide">
                 <div class="messages">
                     <div class="message user-message">
                         <p>Skelos : Hey !</p>
                     </div>
                     <div class="message received-message">
                         <p>Jean : Yo !</p>
-                    </div>
-                    <div class="message user-message">
-                        <p>Skelos : Hey !</p>
-                    </div>
-                    <div class="message received-message">
-                        <p>Jean : Yo !</p>
-                    </div>
-                    <div class="message user-message">
-                        <p>Skelos : Hey !</p>
-                    </div>
-                    <div class="message received-message">
-                        <p>Jean : Yo !</p>
-                    </div>
-                    <div class="message user-message">
-                        <p>Skelos : Hey !</p>
-                    </div>
-                    <div class="message user-message">
-                        <p>Skelos : Hey !</p>
-                    </div>
-                    <div class="message user-message">
-                        <p>Skelos : Hey !</p>
                     </div>
                     
                 </div>
@@ -55,7 +41,7 @@
         </div>
     </div>
 
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js" integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI" crossorigin="anonymous"></script>
     <script src="client.js"></script>
 </body>
 </html>

@@ -22,10 +22,17 @@ app.use(express.json({ limit: '50mb', extended: true }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use(cors({ origin: ['http://localhost:3000'], credentials: true }));
 
-
-
 io.on('connection', (socket) => {
     console.log("A user has connected");
+
+    // quand un utilisateur émet un socket de type "message"
+    socket.on('chat message', (data) => {
+        io.emit('chat message', data);
+    });
+
+    socket.on('disconnect', () => {
+        console.log("A user has disconnected");
+    })
 });
 
 http.listen(process.env.PORT || 3000, () => {
