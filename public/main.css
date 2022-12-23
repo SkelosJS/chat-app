@@ -65,5 +65,26 @@ html {
 .container .chat-box .chat-box-main form button:hover {
   transform: translateX(-5px);
 }
+.container .chat-box .chat-box-main .messages {
+  padding: 10px;
+  overflow-y: scroll;
+}
+.container .chat-box .chat-box-main .messages::-webkit-scrollbar {
+  display: none;
+}
+.container .chat-box .chat-box-main .messages .message {
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px 0px;
+  width: 55%;
+}
+.container .chat-box .chat-box-main .messages .message.user-message {
+  background: dodgerblue;
+  margin-left: auto;
+}
+.container .chat-box .chat-box-main .messages .message.received-message {
+  background: rgb(10, 75, 139);
+}
 
 /*# sourceMappingURL=main.css.map */

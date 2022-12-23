@@ -70,6 +70,32 @@ html {
           }
         }
       }
+
+      .messages {
+        padding: 10px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        .message {
+          color: #fff;
+          padding: 10px;
+          border-radius: 10px;
+          margin: 20px 0px;
+          width: 55%;
+        }
+
+        .message.user-message {
+          background: dodgerblue;
+          margin-left: auto;
+        }
+        
+        .message.received-message {
+          background: rgb(10, 75, 139);
+        }
+      }
     }
   }
 }
