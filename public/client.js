@@ -6,6 +6,9 @@ const loginContainer = document.querySelector('.login');
 const loginInput = document.querySelector('.login > form > input');
 const loginBtn = document.querySelector('.login > form > button');
 const chatBoxMain = document.querySelector('.chat-box-main');
+const messagesContainer = document.querySelector('.messages');
+
+const API_URL = "http://localhost:3000";
 
 let user = "";
 let isBtnActive = false;
@@ -21,6 +24,36 @@ function checkUser() {
         return false;
     }
 }
+
+function createMessage(user_message, message) {
+    const div = document.createElement("div");
+    const p = document.createElement('p');
+
+    div.classList.add('message');
+
+    if(user_message !== user) {
+        div.classList.add('received-message');
+    } else {
+        div.classList.add('user-message')
+    }
+
+    p.innerText = `${user_message} : ${message}`;
+    div.appendChild(p);
+    messagesContainer.appendChild(div);
+    messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
+}
+
+// récupérer les anciens messages
+axios.get(`${API_URL}/api/v1/message/getAll`)
+.then((res) => {
+    let messages = res.data;
+
+    messages.forEach((doc) => {
+        createMessage(doc.user, doc.message);
+    });
+
+    messagesContainer.scrollTo(0, messagesContainer.scrollHeight);
+}).catch((err) => console.log(err))
 
 // event sur l'input de connexion
 loginInput.addEventListener('keyup', (e) => {
@@ -51,26 +84,23 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     
     socket.emit('chat message', { message: input.value, user });
-    console.log('message envoyé au backend !');
-    input.value = "";
+
+    axios.get('http://ip-api.com/json/').then((res) => {
+
+        axios.post(`${API_URL}/api/v1/message/postMessage`, { user, message: input.value, user_ip: res.data.query })
+        .then((res) => {
+            if(res.data.success) {
+                input.value = "";
+            }
+
+        }).catch((err) => {
+            console.log(err);
+        })
+    })
+
 });
 
 // quand le backend nous envoies un message
 socket.on('chat message', (data) => {
-    console.log(data);
-    const div = document.createElement("div");
-    const p = document.createElement('p');
-    const messagesContainer = document.querySelector('.messages');
-
-    div.classList.add('message');
-
-    if(data.user !== user) {
-        div.classList.add('received-message');
-    } else {
-        div.classList.add('user-message')
-    }
-
-    p.innerText = `${data.user} : ${data.message}`;
-    div.appendChild(p);
-    messagesContainer.appendChild(div);
+    createMessage(data.user, data.message);
 });
