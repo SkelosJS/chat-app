@@ -31,6 +31,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .container .chat-box {
   height: 100%;
@@ -141,6 +142,14 @@ html {
 }
 .container .chat-box .login form button:hover {
   transform: translateY(-5px);
+}
+.container #cp {
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+.container #cp i {
+  color: crimson;
 }
 
 /*# sourceMappingURL=main.css.map */

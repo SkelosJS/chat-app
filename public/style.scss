@@ -33,6 +33,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   .chat-box {
     height: 100%;
@@ -159,6 +160,16 @@ html {
           }
         }
       }
+    }
+  }
+
+  #cp {
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+
+    i {
+      color: crimson;
     }
   }
 }
