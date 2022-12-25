@@ -28,14 +28,17 @@ html {
 .container {
   width: 100%;
   height: 100vh;
+  padding: 10px;
   background: linear-gradient(to bottom, #191919, rgb(59, 0, 59));
   display: flex;
   justify-content: center;
   align-items: center;
 
   .chat-box {
-    min-height: 500px;
-    min-width: 500px;
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
     border: 2px solid #fff;
     padding: 10px;
     border-radius: 20px;
@@ -47,13 +50,14 @@ html {
     }
 
     .chat-box-main {
-      height: calc(497px - 39px);
-      display: grid;
-      grid-template-rows: 90% 10%;
+      position: relative;
+      height: calc(100% - 39px); // 100% de la box - le height de 39px du titre
 
       form {
         display: flex;
         width: 100%;
+        position: absolute; // absolute relatif au .chat-box-main et position tout en bas avec bottom: 0
+        bottom: 0;
 
         input {
           width: 100%;
@@ -87,6 +91,7 @@ html {
       .messages {
         padding: 10px;
         overflow-y: scroll;
+        height: calc(100% - 47px); // 100% de la .chat-box-main - le height de 47px du form
 
         &::-webkit-scrollbar {
           display: none;
@@ -113,7 +118,7 @@ html {
 
     .login {
       width: 100%;
-      height: calc(497px - 39px);
+      height: calc(100% - 39px); // 100% de la box - le height de 39px du titre
       display: flex;
       justify-content: center;
       align-items: center;

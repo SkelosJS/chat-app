@@ -26,14 +26,17 @@ html {
 .container {
   width: 100%;
   height: 100vh;
+  padding: 10px;
   background: linear-gradient(to bottom, #191919, rgb(59, 0, 59));
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .container .chat-box {
-  min-height: 500px;
-  min-width: 500px;
+  height: 100%;
+  width: 100%;
+  max-width: 500px;
+  max-height: 500px;
   border: 2px solid #fff;
   padding: 10px;
   border-radius: 20px;
@@ -44,13 +47,14 @@ html {
   text-align: center;
 }
 .container .chat-box .chat-box-main {
-  height: 458px;
-  display: grid;
-  grid-template-rows: 90% 10%;
+  position: relative;
+  height: calc(100% - 39px);
 }
 .container .chat-box .chat-box-main form {
   display: flex;
   width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 .container .chat-box .chat-box-main form input {
   width: 100%;
@@ -80,6 +84,7 @@ html {
 .container .chat-box .chat-box-main .messages {
   padding: 10px;
   overflow-y: scroll;
+  height: calc(100% - 47px);
 }
 .container .chat-box .chat-box-main .messages::-webkit-scrollbar {
   display: none;
@@ -100,7 +105,7 @@ html {
 }
 .container .chat-box .login {
   width: 100%;
-  height: 458px;
+  height: calc(100% - 39px);
   display: flex;
   justify-content: center;
   align-items: center;
