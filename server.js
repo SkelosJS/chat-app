@@ -16,8 +16,6 @@ const mongoose = require('mongoose');
 const publicRoot = process.cwd() + "/public";
 require('dotenv').config();
 
-const router = express.Router();
-app.use('/.netlify/functions/server', router);
 
 app.use(express.static(publicRoot));
 app.engine('html', require('ejs').renderFile);
@@ -58,5 +56,8 @@ db.once('open', () => {
 http.listen(process.env.PORT || 3000, () => {
     console.log(`Listening on port ${process.env.PORT}`);
 });
+
+const router = express.Router();
+app.use('/.netlify/functions/server', router);
 
 module.exports.handler = serverless(app);
