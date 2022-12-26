@@ -8,7 +8,7 @@ const loginBtn = document.querySelector('.login > form > button');
 const chatBoxMain = document.querySelector('.chat-box-main');
 const messagesContainer = document.querySelector('.messages');
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://skelos-chatapp.netlify.app";
 
 let user = "";
 let isBtnActive = false;
