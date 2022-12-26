@@ -1,4 +1,4 @@
-const socket = io("https://skelos-chatapp.netlify.app", { transports: ['websocket'] });
+const socket = io("https://skelos-chatapp.alwaysdata.net", { transports: ['websocket'] });
 
 const form = document.querySelector(".write-message");
 const input = document.querySelector('#message-input');
@@ -8,7 +8,7 @@ const loginBtn = document.querySelector('.login > form > button');
 const chatBoxMain = document.querySelector('.chat-box-main');
 const messagesContainer = document.querySelector('.messages');
 
-const API_URL = "https://skelos-chatapp.netlify.app";
+const API_URL = "https://skelos-chatapp.alwaysdata.net";
 
 let user = "";
 let isBtnActive = false;

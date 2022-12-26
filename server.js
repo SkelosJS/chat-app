@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
     cors: {
-        origin: ['https://skelos-chatapp.netlify.app'],
+        origin: ['https://skelos-chatapp.alwaysdata.net'],
         methods: ['GET', 'POST'],
         credentials: true
     }
@@ -22,7 +22,7 @@ app.set('view engine', 'html');
 
 app.use(express.json({ limit: '50mb', extended: true }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
-app.use(cors({ origin: ['https://skelos-chatapp.netlify.app'], credentials: true }));
+app.use(cors({ origin: ['https://skelos-chatapp.alwaysdata.net'], credentials: true }));
 
 
 // Routers
