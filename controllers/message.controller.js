@@ -3,8 +3,7 @@ const MessageModel = require('../models/message.model');
 module.exports.postMessage = (req, res) => {
     const message = new MessageModel({
         user: req.body.user,
-        message: req.body.message,
-        user_ip: req.body.user_ip
+        message: req.body.message
     });
 
     message.save()
@@ -13,7 +12,7 @@ module.exports.postMessage = (req, res) => {
 }
 
 module.exports.getAllMessages = (req, res) => {
-    MessageModel.find().select('-user_ip').exec((err, data) => {
+    MessageModel.find().exec((err, data) => {
         if(err) return res.status(400).json({ err });
         else return res.status(200).json(data);
     });

@@ -85,19 +85,15 @@ form.addEventListener('submit', (e) => {
     
     socket.emit('chat message', { message: input.value, user });
 
-    axios.get('http://ip-api.com/json/').then((res) => {
+    axios.post(`${API_URL}/api/v1/message/postMessage`, { user, message: input.value })
+    .then((res) => {
+        if(res.data.success) {
+            input.value = "";
+        }
 
-        axios.post(`${API_URL}/api/v1/message/postMessage`, { user, message: input.value, user_ip: res.data.query })
-        .then((res) => {
-            if(res.data.success) {
-                input.value = "";
-            }
-
-        }).catch((err) => {
-            console.log(err);
-        })
-    })
-
+    }).catch((err) => {
+        console.log(err);
+    });
 });
 
 // quand le backend nous envoies un message
