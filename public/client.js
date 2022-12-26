@@ -1,4 +1,4 @@
-const socket = io("localhost:3000", { transports: ['websocket'] });
+const socket = io("https://skelos-chatapp.netlify.app", { transports: ['websocket'] });
 
 const form = document.querySelector(".write-message");
 const input = document.querySelector('#message-input');
